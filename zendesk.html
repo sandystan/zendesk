@@ -36,6 +36,20 @@
                 });
             }
         });
+        
+        zE('webWidget:on', 'chat:end', function () {
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "@ticket-closed"
+                }),
+                "*"
+            );
+            console.log('successfully ended a Zendesk Chat session!');
+        });
+        
+        
+        
         const { sender } = Qs.parse(location.search, { ignoreQueryPrefix: true })
         // console.log("Before manipulating the widget")
         // const { paymentType, game, name, email, phone, sender } = Qs.parse(location.search, { ignoreQueryPrefix: true })
