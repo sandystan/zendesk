@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- Start of codapayment1601020012 Zendesk Widget script -->
+    <!-- <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=9cbf6859-88b5-4e1d-9312-39e7d8ba573c"> </script> -->
+    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=c86ce0bb-ce7e-4346-a8ca-0ea6feb1a643"> </script>
+    <!-- End of codapayment1601020012 Zendesk Widget script -->
+    <script type="text/javascript">
+
+        zE('webWidget', 'setLocale', 'id-id');
+        zE('webWidget:on', 'chat:departmentStatus', function (dept) {
+            if (dept.name === 'Coda Payments Support Indonesia' && dept.status === 'online') {
+                console.log(dept.name + ' is ' + dept.status);      //optional logging
+                zE('webWidget', 'updateSettings', {
+                    webWidget: {
+                        chat: {
+                            departments: {
+                                enabled: [''],
+                                select: 'Coda Payments Support Indonesia'
+                            },
+                            suppress: false
+                        }
+                    }
+                });
+            } else if (dept.name === 'Coda Payments Support Indonesia' && dept.status !== 'online') {
+                console.log(dept.name + ' is ' + dept.status);      //optional logging
+                zE('webWidget', 'updateSettings', {
+                    webWidget: {
+                        chat: {
+                            suppress: true
+                        }
+                    }
+                });
+            }
+        });
+        const { sender } = Qs.parse(location.search, { ignoreQueryPrefix: true })
+        // console.log("Before manipulating the widget")
+        // const { paymentType, game, name, email, phone, sender } = Qs.parse(location.search, { ignoreQueryPrefix: true })
+        // const paymentTags = {
+        //     "Alfamart": "alfamart",
+        //     "Ayopop": "indonesia____ayopop",
+        //     "Bank Transfers Indonesia (Doku)": "indonesia____bank_transfers_indonesia__doku_",
+        //     "Bank Transfers Indonesia (Artajasa)": "indonesia____bank_transfers",
+        //     "Bukalapak": "indonesia____bukalapak",
+        //     "Card Payment Indonesia": "indonesia____card_payment",
+        //     "DANA": "dana",
+        //     "DOKU Wallet": "doku_wallet",
+        //     "GoPay": "gopay",
+        //     "Indomaret": "indomaret",
+        //     "Indosat": "indosat",
+        //     "Itemku": "indonesia____itemku",
+        //     "Kredivo": "kredivo",
+        //     "LinkAja": "linkaja",
+        //     "OVO": "ovo",
+        //     "Shopee-Pay": "indonesia____shopee-pay",
+        //     "Smartfren": "smartfren",
+        //     "Telkomsel": "telkomsel",
+        //     "Tokopedia": "indonesia____tokopedia",
+        //     "Tri Indonesia": "tri_indonesia",
+        //     "True Money Agent Network": "indonesia____true_money_agent_network",
+        //     "XL": "xl"
+        // }
+        // const gamesTags = {
+        //     "AOV": "aov",
+        //     "Asphalt 9: Legends": "asphalt_9",
+        //     "Astral Guardians:Cyber Fantasy": "astral_guardians_cyber_fantasy",
+        //     "Azur Lane": "azure_lane",
+        //     "Badlanders": "badlanders",
+        //     "BarBarQ": "barbarq",
+        //     "Basketrio": "basketrio",
+        //     "Be The King: Judge Destiny": "be_the_king",
+        // }
+        // let paymentChannel = paymentTags[paymentType.trim()]
+        // let gameTag = ""
+        // try {
+        //     gameTag = gamesTags[game]
+        // }
+        // catch (e) {
+        //     console.log("game tag not found in gameTags object")
+        //     gameTag = game.toLowerCase()
+        // }
+        // console.log("Payment Type", paymentType)
+        // console.log("Game", game)
+
+        // window.zESettings = {
+        //     webWidget: {
+        //         zIndex: 999999
+        //     }
+        // };
+
+        // zE('webWidget:on', 'open', function () {
+        //     console.log('The widget has been opened!');
+        // });
+
+        // zE('webWidget:on', 'chat:start', function () {
+        //     console.log('successfully started a Zendesk Chat!');
+        // });
+
+        // zE(function () {
+        //     console.log("In zE.identify function")
+        //     console.log("Name of the user", name)
+        //     console.log("Email of the user", email)
+        //     console.log("Phone number of the user", phone)
+        //     zE.identify({
+        //         name,
+        //         email,
+        //         phone
+        //     });
+        // });
+
+        zE(function () {
+            zE.activate();
+        });
+        zE('webWidget', 'chat:addTags', ["YellowMessenger", sender]);
+        // zE('webWidget', 'chat:addTags', ["Indonesia", paymentChannel, gameTag, "YellowMessenger", sender]);
+
+    </script>
+
+    <style>
+        .yb1swt-0 .bjAPLh {
+            height: 100%;
+            padding: 0rem;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+
+</html>
